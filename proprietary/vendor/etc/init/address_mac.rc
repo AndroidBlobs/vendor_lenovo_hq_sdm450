@@ -1,0 +1,4 @@
+service address_mac /vendor/bin/address_mac
+    class main
+    user root
+    oneshot

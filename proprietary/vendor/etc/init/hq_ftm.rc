@@ -1,0 +1,28 @@
+on boot
+    start hq_ftm
+    chmod 666 /dev/diag
+    chmod 777 /mnt/vendor/persist/WCNSS_qcom_wlan_nv.bin
+    chmod 777 /mnt/vendor/persist/bluetooth
+    chmod 777 /mnt/vendor/persist/bluetooth/.bt_nv.bin
+    chmod 0777 /mnt/vendor/persist/flag/
+    chmod 0666 /mnt/vendor/persist/flag/psn.txt
+    chmod 0666 /mnt/vendor/persist/flag/csn.txt
+    chmod 0666 /mnt/vendor/persist/flag/countrycode.txt
+    chmod 0666 /mnt/vendor/persist/flag/BT.FLG
+    chmod 0666 /mnt/vendor/persist/flag/FT.FLG
+    chmod 0666 /mnt/vendor/persist/flag/AT.FLG
+    chmod 0666 /mnt/vendor/persist/flag/WF.FLG
+    chmod 0666 /mnt/vendor/persist/flag/WA.FLG
+    chmod 0666 /mnt/vendor/persist/flag/PCBA.FLG
+    chmod 0666 /mnt/vendor/persist/flag/MMI1.FLG
+    chmod 0666 /mnt/vendor/persist/flag/MMI2.FLG
+    chmod 0666 /mnt/vendor/persist/flag/FULL.FLG
+    chmod 0666 /mnt/vendor/persist/flag/RUNIN.FLG
+    chmod 0666 /mnt/vendor/persist/flag/RESET.FLG
+    chmod 0666 /mnt/vendor/persist/flag/runin_test_time.txt
+    chown -R root:system /mnt/vendor/persist/flag/
+
+service hq_ftm /vendor/bin/hq_ftm
+    class main
+    user root
+    group bluetooth vendor_qti_diag system diag oem_2901 sdcard_rw sdcard_r media_rw
